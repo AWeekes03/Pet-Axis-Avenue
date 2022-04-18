@@ -1,1 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Axis Avenue</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    
+    header,
+    footer,
+    section,
+    aside,
+    main {
+        padding: 1em;
+    }
+    
+    h1 {
+        display: flex;
+        justify-content: center;
+        color: white;
+        background-color: black;
+        flex-grow: 1;
+        margin: 0;
+        font-size: 50px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    
+    span {
+        color: #01AFDA;
+    }
+    
+    span2 {
+        color: #FEE471;
+    }
+    
+    span3 {
+        color: #FE9FAB;
+    }
+    
+    header,
+    footer {
+        color: white;
+        background-color: #1976D2;
+        flex-grow: 1;
+        padding-top: none;
+    }
+    
+    footer {
+        background-color: black;
+        height: auto;
+    }
+    
+    header {
+        display: flex;
+        justify-content: left;
+        height: min-content;
+    }
+    
+    h2 {
+        color: black;
+        font-size: x-large;
+        text-align: center;
+    }
+    
+    h3 {
+        text-align: center;
+    }
+    
+    h4 {
+        color: black;
+        text-align: center;
+    }
+    
+    .logo {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border: 5px solid black;
+        margin-bottom: auto;
+        border-radius: 5px;
+    }
+    
+    section {
+        background-color: #01AFDA;
+        color: black;
+        flex-grow: 5;
+        margin: 0.5em;
+        height: auto;
+        padding: 0.5em;
+        border-radius: 5px;
+    }
+    
+    main {
+        background-color: #F7F1E3;
+        color: white;
+        flex-grow: 9;
+        overflow-y: scroll;
+    }
+    
+    body {
+        display: flex;
+        flex-direction: column;
+        background-color: #FFFFFF;
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+    }
+    
+    .row {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    div.row {
+        flex-grow: 8;
+        height: 80%;
+    }
+    
+    .col {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .nav_links>li>a:hover {
+        font-weight: 900;
+        font-size: larger;
+    }
+    
+    nav {
+        display: flex;
+        text-align: center;
+        min-height: fit-content;
+    }
+    
+    .nav_links>li {
+        display: inline-block;
+        border-radius: 10px;
+        padding: 0.8em;
+    }
+    
+    .nav_links>li>a {
+        display: inline-block;
+        color: black;
+        letter-spacing: 1px;
+        background-color: #F7F1E3;
+        text-decoration: none;
+        border-radius: 10px;
+        padding: 0.4em;
+        margin-bottom: 5px;
+    }
+    
+    .petinfocatalogue {
+        background-color: #FEE471;
+    }
+    
+    .petshop {
+        background-color: #FE9FAB;
+    }
+    
+    b,
+    p {
+        color: black;
+        text-align: center;
+        font-size: auto;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .ownertips {
+        font-family: Arial, Helvetica, sans-serif;
+        list-style-position: inside;
+        text-align: center;
+    }
+    
+    ul {
+        list-style-type: circle;
+    }
+    
+    .collapsible {
+        background-color: #1976D2;
+        color: black;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: center;
+        outline: none;
+        font-size: 15px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bolder;
+    }
+    
+    .active,
+    .collapsible:hover {
+        background-color: #2382e1;
+    }
+    
+    .content {
+        padding: 0 18px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        background-color: #f1f1f1;
+    }
+    
+    .grid-container {
+        display: block;
+        grid-template-columns: auto auto;
+        gap: 5px;
+        background-color: #e2c440;
+        border-radius: 5px;
+        border: solid 5px #e2c440;
+    }
+    
+    .grid-container>div {
+        background-color: #F7F1E3;
+        text-align: center;
+        padding: 10px;
+        font-size: auto;
+        align-items: center;
+        padding-right: 35px;
+    }
+    
+    .petpics {
+        border-radius: 5px;
+        border: solid 5px #e2c440;
+        height: 200px;
+        object-fit: cover;
+    }
+    
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    td,
+    th {
+        border: 5px solid #cbe5ff;
+        text-align: center;
+        padding: 8px;
+        border-radius: 5px;
+        font-size: auto;
+        color: black;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #cbe5ff;
+    }
+    
+    tr:nth-child(odd) {
+        background-color: #F7F1E3;
+    }
+    
+    @media screen and (max-width: 600px) {
+        div.row {
+            flex-direction: column;
+        }
+    }
+</style>
+
+<body>
+
+    <h1>
+        <span>P</span>et
+        <span2> A</span2>xis
+        <span3> A</span3>venue
+    </h1>
+
+    <header style="padding-top: 1px !important; padding-bottom: 1px !important;">
+        <h2>Your one stop for everything pets!</h2>
+        <!-- Links -->
+        <nav class="Navigation Links">
+            <ul class="nav_links" style="margin-bottom: 5px !important; margin-top: 5px !important;">
+                <li><a href="#about" class="skip ">About</a>
+                    <a href="#petinfocatalogue" class="skip">Pet Info Catalogue</a>
+                    <a href="#petshop" class="skip">Pet Shop</a>
+                    <a href="#funfacts" class="skip">Fun Facts</a>
+                </li>
+            </ul class="nav_links ">
+        </nav>
+    </header>
+
+    <main>
+        <!--Information-->
+        <section class="about" id="about">
+            <h3>What is Pet Axis Avenue?</h3>
+            <img src="petaxislogo.jpeg" class="logo " alt="petaxislogo " width="148 " height="160 ">
+
+            <button class="collapsible">Our Vision</button>
+            <div class="content">
+                <p>Our goal at Pet Axis Avenue is to provide all pet owners (whether future, new or seasoned) a single, accessible destination to learn all about their companions!</p>
+            </div>
+
+            <button class="collapsible">Did you know?</button>
+            <div class="content">
+                <p>According to a 2020 study conducted by TrackingHappiness.com, pet owners are 12% happier than those without pets.</p>
+            </div>
+
+            <button class="collapsible">Tips for Future Pet Owners!</button>
+            <div class="content">
+                <ul class="ownertips">
+                    <li>Find a pet that most suits your personality type!</li>
+                    <li>Ensure your surroundings are suitable for your pet before adoption!</li>
+                    <li>If you have children, ensure the pet you choose is kid-friendly!</li>
+                    <li>Don't adopt a high-maintenance pet if you are busy!</li>
+                </ul>
+            </div>
+
+        </section>
+        <section class="petinfocatalogue" id="petinfocatalogue">
+            <h3>Pet Information Catalogue</h3>
+
+            <div class="grid-container">
+                <div>
+                    <h3>Dogs</h3>
+                    <!--Picture of a dog, then a non-bulleted list with dog information. Same for others.-->
+                    <img src="dog.jpeg " class="petpics " alt="dog ">
+                    <!--lifespan, temperament, favorite food, kid-friendly, stranger-friendly, maintenance level-->
+                    <ul>
+                        <p><b>Lifespan: </b>10-13 Years</p>
+                        <p><b>Temperament: </b>Golden Retrievers are the friendliest, Shar-peis and Shiba Inus are the least.</p>
+                        <p><b>Favorite Food: </b>Beef, Pork, Lamb and Horse meat.</p>
+                        <p><b>Kid-Friendly: </b>Most breeds except Chihuahuas, Pekingese and Huskies.</p>
+                        <p><b>Stranger-Friendly: </b>Some breeds can be trained to deter strangers.</p>
+                        <p><b>Maintenance Level: </b>High</p>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Cats</h3>
+                    <img src="cat.jpeg " class="petpics " alt="cat ">
+                    <ul>
+                        <p><b>Lifespan: </b>12-18 Years</p>
+                        <p><b>Temperament: </b>Depending on the breed, either attention-seeking or attention hating.</p>
+                        <p><b>Favorite Food: </b>Pork, Chicken, Beef, Salmon, Tuna and Turkey.</p>
+                        <p><b>Kid-Friendly: </b>Most breeds except Russian Blue, Himalayan and Savannah.</p>
+                        <p><b>Stranger-Friendly: </b>Yes</p>
+                        <p><b>Maintenance Level: </b>Medium-High</p>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Rabbits</h3>
+                    <img src="rabbit.jpeg " class="petpics " alt="rabbit ">
+                    <ul>
+                        <p><b>Lifespan: </b>8-12 Years</p>
+                        <p><b>Temperament: </b>Shy, curious, high-spirited.</p>
+                        <p><b>Favorite Food: </b>Bell peppers, Bok choy, Brussels sprouts, Carrot tops, Hay and Cucumber.</p>
+                        <p><b>Kid-Friendly: </b>Yes</p>
+                        <p><b>Stranger-Friendly: </b>Yes</p>
+                        <p><b>Maintenance Level: </b>Medium</p>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Birds</h3>
+                    <img src="bird.jpeg " class="petpics " alt="bird ">
+                    <ul>
+                        <p><b>Lifespan: </b>6-18 Years</p>
+                        <p><b>Temperament: </b>Affectionate, possessive, entertaining.</p>
+                        <p><b>Favorite Food: </b>Insects, Seeds, grasses, Flowers, Berries, Fruits and Nuts.</p>
+                        <p><b>Kid-Friendly: </b>Yes</p>
+                        <p><b>Stranger-Friendly: </b>Yes</p>
+                        <p><b>Maintenance Level: </b>Medium-Low</p>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Reptiles</h3>
+                    <img src="snake.jpeg " class="petpics " alt="reptiles ">
+                    <ul>
+                        <p><b>Lifespan: </b>Average 20 Years. The larger it is, the longer it lives.</p>
+                        <p><b>Temperament: </b>Neutral, calm. Aggressive only when provoked.</p>
+                        <p><b>Favorite Food: </b>Rats, Mice, Rabbits, Smaller reptiles, Insects and Amphibians.</p>
+                        <p><b>Kid-Friendly: </b>No</p>
+                        <p><b>Stranger-Friendly: </b>Usually not.</p>
+                        <p><b>Maintenance Level: </b>Low</p>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Horses</h3>
+                    <img src="horse.jpeg " class="petpics " alt="horse ">
+                    <ul>
+                        <p><b>Lifespan: </b>25-30 Years</p>
+                        <p><b>Temperament: </b>Social, sometimes aloof.</p>
+                        <p><b>Favorite Food: </b>Watermelon, Apples, Strawberries, Bananas, Alfalfa and Peppermints.</p>
+                        <p><b>Kid-Friendly: </b>Yes</p>
+                        <p><b>Stranger-Friendly: </b>Yes</p>
+                        <p><b>Maintenance Level: </b>Very High</p>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Hamsters</h3>
+                    <img src="hamster.jpeg " class="petpics " alt="hamster ">
+                    <ul>
+                        <p><b>Lifespan: </b>2-5 Years</p>
+                        <p><b>Temperament: </b>Docile</p>
+                        <p><b>Favorite Food: </b>Grains, Vegetables, Fruits, Timothy hay, Cheese, Rice and Peas.</p>
+                        <p><b>Kid-Friendly: </b>Yes</p>
+                        <p><b>Stranger-Friendly: </b>Yes</p>
+                        <p><b>Maintenance Level: </b>Low</p>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Fish</h3>
+                    <img src="fish.jpeg " class="petpics " alt="fish ">
+                    <ul>
+                        <p><b>Lifespan: </b>3-5 Years</p>
+                        <p><b>Temperament: </b>Friendly, except for Piranhas.</p>
+                        <p><b>Favorite Food: </b>Brine shrimp, Krill, Daphnia, Blackworms and Tubifex.</p>
+                        <p><b>Kid-Friendly: </b>Yes, except for Piranhas.</p>
+                        <p><b>Stranger-Friendly: </b>Yes, except for Piranhas.</p>
+                        <p><b>Maintenance Level: </b>Low</p>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+        <section class="petshop" id="petshop">
+            <h3>Pet Shop</h3>
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d125458.40553363286!2d-61.52163235450715!3d10.690046034301329!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c360901663459d9%3A0xb6fce1e5e20eb264!2sLittle%20Amazon%20Pet%20Store!5e0!3m2!1sen!2stt!4v1650252291420!5m2!1sen!2stt "
+                width="100% " height="450 " style="border:0; " allowfullscreen=" " loading="lazy " referrerpolicy="no-referrer-when-downgrade "></iframe>
+
+        </section>
+        <section class="funfacts" id="funfacts">
+            <h3>Fun Facts</h3>
+            <!--Table, two columns, multiple rows. Fun facts about iconic animals, cool details and historical events related to animals (e.g. Egyptians worshipped cats, grumpy cat, % dog owners, cat people vs dog people, etc.)-->
+
+            <table>
+                <tr>
+                    <td>The real name of the internet sensation "Grumpy Cat " was Tardar Sauce.</td>
+                </tr>
+                <tr>
+                    <td>The Ancient Egyptians did not worship cats. Rather, their gods Bastet, Sekhmet and Mafdet were depicted with cat-like heads. However, if one was to kill a cat, one would be sentenced to death.</td>
+                </tr>
+                <tr>
+                    <td>Dogs have an excellent sense of smell, and can use it to diagnose medical conditions in humans.</td>
+                </tr>
+                <tr>
+                    <td>The Beatles song "A Day in the Life " has a frequency that only dogs can hear.</td>
+                </tr>
+                <tr>
+                    <td>A baby rabbit is called a kit, a female is called a doe, and a male is called a buck.</td>
+                </tr>
+                <tr>
+                    <td>When happy, rabbits perform a highly athletic leap called a 'binky' which involves twists and kicks.</td>
+                </tr>
+                <tr>
+                    <td>Snakes smell with their tongues!</td>
+                </tr>
+                <tr>
+                    <td>Hamsters were "discovered " in the Syrian desert less than 100 years ago.</td>
+                </tr>
+                <tr>
+                    <td>Horses cannot breathe through their mouth, but they can sleep standing up!</td>
+                </tr>
+                <tr>
+                    <td>The chicken is the closest living relative to the Tyrannosaurus Rex.</td>
+                </tr>
+                <tr>
+                    <td>Most fish (except sharks) do not have eyelids.</td>
+                </tr>
+                <tr>
+                    <td>Dory from Finding Nemo is a Blue Hippo Tang whereas Marlin and Nemo are clownfish.</td>
+                </tr>
+            </table>
+
+        </section>
+    </main>
+    </div>
+
+    <footer>
+        <h5>Pet Axis Avenue | INFO 1601 Project 2022</h5>
+    </footer>
+
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>
